@@ -1,0 +1,18 @@
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        if(s.length() != t.length()) return false;
+        int [] charcount=new int[26];
+        int i=0;
+        while(i<s.length())
+        {
+            charcount[s.charAt(i)-'a']++;
+            charcount[t.charAt(i)-'a']--;
+            i++;
+        }
+       for(int count: charcount)
+        {
+            if(count !=0) return false;
+        }
+        return true;
+    }
+}
