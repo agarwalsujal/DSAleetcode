@@ -1,0 +1,23 @@
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        int[] pre=new int[nums.length];
+        int[] post=new int[nums.length];
+        int j=nums.length-2;
+        pre[0]=1;
+        post[nums.length-1]=1;
+        for(int i=1;i<nums.length;i++){
+        pre[i]=nums[i-1]*pre[i-1];
+         System.out.println(pre[i]);
+        post[j]=nums[j+1]*post[j+1];
+        System.out.println(post[j]);
+        j--;
+    }
+    int[] ans=new int[nums.length];
+    for(int i=0;i<nums.length;i++){
+        ans[i]=pre[i]*post[i];
+       
+    }
+    return ans;
+    
+}
+}
