@@ -1,0 +1,32 @@
+
+
+/// MY METHOD TOOK CHAT GPTS HELP
+class Solution {
+    public int[] topKFrequent(int[] nums, int k) {
+        int [] target=new int[k];
+        int i=0;
+        Map<Integer,Integer> map=new HashMap<>();
+        for(int num:nums){
+            if(map.containsKey(num)){
+                int val=map.get(num);
+                val++;
+                map.put(num,val);
+            }else{
+                map.put(num,1);
+                i++;
+            }
+
+        }
+        List<Map.Entry<Integer, Integer>> entries = new ArrayList<>(map.entrySet());
+
+        // Step 2: Sort by values
+        entries.sort(Map.Entry.comparingByValue());
+    
+       while(k-1>=0){
+            target[k-1]=entries.get(i-1).getKey();
+            k--;
+            i--;
+        }
+return target;
+    }
+}
