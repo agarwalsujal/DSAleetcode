@@ -1,0 +1,37 @@
+class Solution {
+    public boolean check(int[] nums) {
+      int n=nums.length;
+      int i=0,c=0;
+      while(i<n-1){
+        if(nums[i]>nums[i+1]){
+        c=i+1;
+        break;}
+  i++;
+      }
+      int[] slice1 = Arrays.copyOfRange(nums, c, n);
+
+        // Slice 2: elements 4 to 5 (50, 60)
+        int[] slice2 = Arrays.copyOfRange(nums, 0, c);
+
+        // Create new array of combined length
+        int[] merged = new int[slice1.length + slice2.length];
+
+        // Copy both slices
+        System.arraycopy(slice1, 0, merged, 0, slice1.length);
+        System.arraycopy(slice2, 0, merged, slice1.length, slice2.length);
+       i=0;
+      int d=0;
+      while(i<n-1)
+      {
+        if(merged[i]>merged[i+1]){
+            d++;
+            break;
+        }
+        i++;
+      }
+      if(d==1)
+      return false;
+      else
+      return true;
+}
+}
