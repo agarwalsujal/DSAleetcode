@@ -1,0 +1,22 @@
+class Solution {
+    public int[] twoSum(int[] numbers, int target) {
+           int c1=0,c2=numbers.length-1;
+        while(c1<c2){
+          if(numbers[c1]+numbers[c2]>target){
+            c2--;
+          }else if(numbers[c1]+numbers[c2]<target)
+            c1++;
+           else if(numbers[c1]+numbers[c2] ==target){
+            c1++;
+            c2++;
+            break;
+           }
+
+
+        
+        }
+    
+    return new int[]{c1,c2};
+        
+    }
+}
