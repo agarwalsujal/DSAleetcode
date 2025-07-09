@@ -1,0 +1,57 @@
+class Solution {
+    public int maxProfit(int[] prices) {
+        if(prices.length ==0 || prices.length==1)
+        return 0;
+     
+        int l=prices[0];
+        int r=1;
+        int profit =0;
+        while(r<prices.length){
+            // if(l>prices[r])
+            // l=prices[r];
+            l=Math.min(l,prices[r]);
+            profit=Math.max(profit,prices[r]-l);
+            r++;
+        }
+              return profit;  
+//             if(prices[l]>=prices[l+1]){
+//                 l++;   
+//                 r++;             
+//                 continue;
+//             }else if(prices[l]<=prices[r]){
+//                 System.out.println(prices[r]-prices[l]+"   profit");
+//                 profit=Math.max(profit,prices[r]-prices[l]);
+//                 r++;
+//                 continue;
+//             }else if(prices[r]<prices[l]){
+//             l=r;
+// r+=1;}
+        //     if(prices[l]>prices[l+1])
+        //     l++;
+        //     if(prices[r]<prices[r-1])
+        //     r--;
+        //     if(prices[l]>prices[r]){
+        //     l++;}
+        //     else{
+        //     profit=Math.max(profit,prices[r]-prices[l]);
+        //    r--;
+             
+   
+
+    
+    }
+}
+// class Solution {
+//     public int maxProfit(int[] prices) {
+//         int buy = prices[0];
+//         int profit = 0;
+//         for (int i = 1; i < prices.length; i++) {
+//             if (prices[i] < buy) {
+//                 buy = prices[i];
+//             } else if (prices[i] - buy > profit) {
+//                 profit = prices[i] - buy;
+//             }
+//         }
+//         return profit;
+//     }
+// }
